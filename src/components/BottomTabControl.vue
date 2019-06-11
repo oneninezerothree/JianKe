@@ -1,29 +1,8 @@
 <template>
 <div class="tab-bar">
-    <a  class="tab-bar-item" >
-        <i  class="icon iconfont icon-tab-home"></i>
-        <!---->
-        <p >首页</p>
-      </a>
-    <a  class="tab-bar-item active" >
-        <!---->
-        <i  class="icon iconfont icon-tab-classify-active"></i>
-        <p >分类</p>
-      </a>
-    <a  class="tab-bar-item" >
-        <i  class="icon iconfont icon-tab-jktt"></i>
-        <!---->
-        <p >头条</p>
-      </a>
-    <a  class="tab-bar-item" >
-        <i  class="icon iconfont icon-tab-cart"></i>
-        <!---->
-        <p >购物车</p>
-      </a>
-    <a  class="tab-bar-item" >
-        <i  class="icon iconfont icon-tab-mine"></i>
-        <!---->
-        <p >我</p>
+    <a v-for="(item, index) in TabControlContent" :key="index" class="tab-bar-item" :class="index === SelectedOption ? 'active' : ''" @click="ChangeIcon(index)">
+        <i  class="icon iconfont" :class="index === SelectedOption ? item.ActiveIcon : item.icon"></i>
+        <p >{{ item.text }}</p>
       </a>
 </div>
 </template>
@@ -31,7 +10,37 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-
+    data() {
+        return {
+            TabControlContent: [{
+                text: '首页',
+                icon: 'icon-tab-home',
+                ActiveIcon: 'icon-tab-home-active',
+            }, {
+                text: '分类',
+                icon: 'icon-tab-classify',
+                ActiveIcon: 'icon-tab-classify-active',
+            }, {
+                text: '头条',
+                icon: 'icon-tab-jktt',
+                ActiveIcon: 'icon-tab-jktt-active',
+            }, {
+                text: '购物车',
+                icon: 'icon-tab-cart',
+                ActiveIcon: 'icon-tab-cart-active',
+            }, {
+                text: '我',
+                icon: 'icon-tab-mine',
+                ActiveIcon: 'icon-tab-mine-active',
+            }],
+            SelectedOption: 0,
+        };
+    },
+    methods: {
+        ChangeIcon(index: number) {
+            this.SelectedOption = index;
+        },
+    },
 });
 </script>
 
