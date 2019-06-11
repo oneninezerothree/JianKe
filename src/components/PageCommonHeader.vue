@@ -1,10 +1,10 @@
 <template>
-<header id="mallHeader" class="class-head">
+<header id="mallHeader" :class="param.className">
     <div>
         <a rel="nofollow" class="back-btn common-header-btn">
         <i class="icon iconfont icon-back"></i>
       </a>
-        <span>全部分类</span>
+        <span>{{ param.titleText }}</span>
         <div class="toggle-btn common-header-btn">
             <a rel="nofollow" class="common-width">
           <i class="icon iconfont icon-more"></i>
@@ -49,7 +49,9 @@
 
 <script lang="ts">
 import Vue from 'vue';
-export default Vue.extend({});
+export default Vue.extend({
+    props: ['param'],
+});
 </script>
 
 <style lang="scss" scoped>
@@ -59,6 +61,11 @@ export default Vue.extend({});
     top: 0;
     left: 0;
     width: 100%;
+}
+
+.list-head {
+    z-index: 1111;
+    position: relative;
 }
 
 a {

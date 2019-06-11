@@ -79,5 +79,13 @@ a {
     background-color: transparent;
 }
 
+.search-result .search,
+.search-result .search-head,
+.search-result .search-result-nav,
+.search-result .swipe {
+    z-index: 1111;
+    position: relative;
+}
+
 @import url(../public/css/iconfont.css);
 </style>

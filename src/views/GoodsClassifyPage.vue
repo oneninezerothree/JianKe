@@ -1,33 +1,33 @@
 <template>
-<div>
-    <ListCommonHeader></ListCommonHeader>
-    <ListCommonSearch></ListCommonSearch>
-    <ListLeftControl></ListLeftControl>
-    <ListRightContent></ListRightContent>
-    <BottomTabControl></BottomTabControl>
+<div class="view">
+    <PageCommonHeader :param="{'titleText':'全部分类','className': 'class-head'}"></PageCommonHeader>
+    <PageCommonSearch></PageCommonSearch>
+    <ClassifyTabControl></ClassifyTabControl>
+    <ClassifyContent></ClassifyContent>
+    <PageCommonBottom></PageCommonBottom>
 </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue';
 // 列表页公共头部组件
-import ListCommonHeader from '../components/ListCommonHeader.vue';
+import PageCommonHeader from '../components/PageCommonHeader.vue';
 // 列表页公共搜索组件
-import ListCommonSearch from '../components/ListCommonSearch.vue';
+import PageCommonSearch from '../components/PageCommonSearch.vue';
 // 列表页左侧列表项组件
-import ListLeftControl from '../components/ListLeftControl.vue';
+import ClassifyTabControl from '../components/ClassifyTabControl.vue';
 // 列表页右侧内容组件
-import ListRightContent from '../components/ListRightContent.vue';
+import ClassifyContent from '../components/ClassifyContent.vue';
 // 底部选项卡组件
-import BottomTabControl from '../components/BottomTabControl.vue';
+import PageCommonBottom from '../components/PageCommonBottom.vue';
 
 export default Vue.extend({
     components: {
-        ListCommonHeader,
-        ListCommonSearch,
-        ListLeftControl,
-        ListRightContent,
-        BottomTabControl,
+        PageCommonHeader,
+        PageCommonSearch,
+        ClassifyTabControl,
+        ClassifyContent,
+        PageCommonBottom,
     },
 });
 </script>

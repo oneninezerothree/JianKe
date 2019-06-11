@@ -1,6 +1,6 @@
 <template>
 <div class="search">
-    <div class="class-search-box">
+    <div class="class-search-box" :class="className">
         <div class="search-content"><i  class="icon iconfont icon-search"></i><input  type="text" placeholder="爽购618 心药九折起"></div>
             <div class="search-btn">搜索</div>
         </div>
@@ -10,7 +10,7 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-
+    props: ['className'],
 });
 </script>
 
@@ -63,6 +63,11 @@ export default Vue.extend({
             border-radius: 4px;
             background: #28b2f9;
         }
+    }
+
+    .class-search-box.searchList {
+        position: relative;
+        top: 0;
     }
 }
 </style>

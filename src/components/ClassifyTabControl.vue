@@ -1,11 +1,9 @@
 <template>
-<div>
-    <nav class="classify-nav-box">
-        <ul class="nav-list">
-            <li v-for="(item, index) in ListTitle" :key="index" :class="index === CurrentClass ? 'current' : ''" @click="ChangeCurrentClass(index)">{{ item.title }}</li>
-        </ul>
-    </nav>
-</div>
+<nav class="classify-nav-box">
+    <ul class="nav-list">
+        <li v-for="(item, index) in ListTitle" :key="index" :class="index === CurrentClass ? 'current' : ''" @click="ChangeCurrentClass(index)">{{ item.title }}</li>
+    </ul>
+</nav>
 </template>
 
 <script lang="ts">
