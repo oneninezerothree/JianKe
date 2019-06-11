@@ -1,14 +1,12 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -26,4 +24,22 @@
     }
   }
 }
+html {
+font-size: 50px !important;
+line-height: 1.15;
+}
+
+body {
+font-family: Microsoft YaHei, tahoma, arial;
+}
+
+html,
+body {
+width: 100%;
+overflow-x: hidden;
+overflow-y: scroll;
+-webkit-overflow-scrolling: touch;
+font-size: 14px;
+}
+@import url(../public/css/iconfont.css);
 </style>
