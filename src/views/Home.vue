@@ -2,10 +2,11 @@
   <div>
     <jktop/>
     <jkHeader/>
-    <jknav/>
     <jkSlideshow/>
     <jkselect/>
     <jkrecommend/>
+    <jkgou/>
+    <jknav/>
   </div>
 </template>
 
@@ -17,15 +18,17 @@ import jknav from '@/components/jknav.vue';
 import jkSlideshow from '@/components/jkSlideshow.vue';
 import jkselect from '@/components/jkselect.vue';
 import jkrecommend from '@/components/jkrecommend.vue';
+import jkgou from '@/components/jkgou.vue';
 
 @Component({
   components: {
     jktop,
     jkHeader,
-    jknav,
     jkSlideshow,
     jkselect,
     jkrecommend,
+    jknav,
+    jkgou,
   },
 })
 export default class Home extends Vue {}

@@ -5,7 +5,7 @@
     </div>
     <div class="jktt-list">
       <ul class="list-box" style="transform: translate(0px, 0px) translateZ(0px);">
-        <li class="item" v-for="(auto,idx) in linkAdvise" :key="auto.number">
+        <li class="item" v-for="(auto) in linkAdvise" :key="auto.number" >
           <span class="jktt-type">文章</span>
           {{auto.span}}
         </li>
@@ -57,15 +57,16 @@ export default {
 </script>
 
 <style scoped lang="scss">
+ul li {
+  list-style: none;
+}
 img {
   border-style: none;
 }
-element.style {
-  transform: translate(0px, -38px) translateZ(0px);
-  // transition-duration: 0.6s;
-}
 .jktt-box {
-  height: displalex;
+  height: 0.72rem;
+  overflow: hidden;
+  display: flex;
   padding: 0.1rem 0.24rem;
   background: #fff;
   .jktt-icon {
@@ -75,17 +76,35 @@ element.style {
     display: flex;
     justify-content: center;
     align-items: center;
+    img {
+      display: block;
+      width: 100%;
+    }
   }
-  .jktt-icon img {
-    display: block;
-    width: 100%;
+  .jktt-list {
+    font-size: 0.24rem;
+    flex: 1 1 5.6rem;
+    padding: 0 0.08rem;
+    height: 0.72rem;
+    overflow: hidden;
+    .item {
+      padding: .05rem 0.48rem .05rem 0;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      transition-duration: 0.6s;
+      .jktt-type {
+        display:inline-block;
+        font-size:.16rem;
+        border:1px solid #f34242;
+        color:#f34242;
+        border-radius:2px;
+        padding:.02rem .04rem;
+      }
+    }
+
   }
-  // .jktt-list .item {
-  //   padding: 0.5rem 0.48rem 05rem 0;
-  //   text-overflow: ellipsis;
-  //   white-space: nowrap;
-  //   overflow: hidden;
-  //   list-style: none;
-  // }
 }
+
+
 </style>
