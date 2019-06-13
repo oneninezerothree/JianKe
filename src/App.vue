@@ -1,8 +1,20 @@
 <template>
 <div id="app">
     <router-view />
+    <PageCommonBottom></PageCommonBottom>
 </div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+// 底部选项卡组件
+import PageCommonBottom from './components/PageCommonBottom.vue';
+export default Vue.extend({
+    components: {
+        PageCommonBottom,
+    },
+});
+</script>
 
 <style lang="scss">
 html {

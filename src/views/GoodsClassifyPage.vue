@@ -4,7 +4,6 @@
     <PageCommonSearch></PageCommonSearch>
     <ClassifyTabControl></ClassifyTabControl>
     <ClassifyContent></ClassifyContent>
-    <PageCommonBottom></PageCommonBottom>
 </div>
 </template>
 
@@ -18,8 +17,7 @@ import PageCommonSearch from '../components/PageCommonSearch.vue';
 import ClassifyTabControl from '../components/ClassifyTabControl.vue';
 // 列表页右侧内容组件
 import ClassifyContent from '../components/ClassifyContent.vue';
-// 底部选项卡组件
-import PageCommonBottom from '../components/PageCommonBottom.vue';
+
 
 export default Vue.extend({
     components: {
@@ -27,7 +25,6 @@ export default Vue.extend({
         PageCommonSearch,
         ClassifyTabControl,
         ClassifyContent,
-        PageCommonBottom,
     },
 });
 </script>
