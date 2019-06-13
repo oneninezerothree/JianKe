@@ -17,7 +17,7 @@ html,
 body {
     width: 100%;
     overflow-x: hidden;
-    overflow-y: scroll;
+    overflow-y: auto;
     -webkit-overflow-scrolling: touch;
     font-size: 14px;
 }
