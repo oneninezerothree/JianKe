@@ -6,7 +6,6 @@
 
 <style lang="scss">
 html {
-    font-size: 50px !important;
     line-height: 1.15;
 }
 
@@ -51,6 +50,12 @@ ul {
     margin: 0;
 }
 
+ul li {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
 a,
 button,
 input,
@@ -79,10 +84,10 @@ a {
     background-color: transparent;
 }
 
-.search-result .search,
-.search-result .search-head,
-.search-result .search-result-nav,
-.search-result .swipe {
+.search,
+.search-head,
+.search-result-nav,
+.swipe {
     z-index: 1111;
     position: relative;
 }

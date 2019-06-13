@@ -10,6 +10,13 @@
     </div>
     <ListPageSort></ListPageSort>
     <ListPageGoodsList></ListPageGoodsList>
+    <div class="fixed-btn-box">
+        <a href="/cart" class="car-btn">
+        <i class="icon iconfont icon-bar-shoppingcart"></i>
+        <span>12</span>
+      </a>
+        <PageCommonToTop></PageCommonToTop>
+    </div>
 </div>
 </template>
 
@@ -23,12 +30,15 @@ import PageCommonSearch from '../components/PageCommonSearch.vue';
 import ListPageSort from '../components/ListPageSort.vue';
 // 列表页商品列表组件
 import ListPageGoodsList from '../components/ListPageGoodsList.vue';
+// 列表页公共返回顶部组件
+import PageCommonToTop from '../components/PageCommToTop.vue';
 export default Vue.extend({
     components: {
         PageCommonHeader,
         PageCommonSearch,
         ListPageSort,
         ListPageGoodsList,
+        PageCommonToTop,
     },
 });
 </script>
@@ -55,6 +65,45 @@ export default Vue.extend({
 
         .tip-top {
             font-size: .32rem;
+        }
+    }
+}
+
+.fixed-btn-box {
+    position: fixed;
+    bottom: .6rem;
+    right: .4rem;
+    width: .74rem;
+    transition: all 1s 0s;
+
+    .car-btn i {
+        font-size: .38rem;
+    }
+
+    .car-btn,
+    .to-top {
+        width: .72rem;
+        height: .72rem;
+        margin-top: .2rem;
+        position: relative;
+        display: block;
+        border: 1px solid #ddd;
+        border-radius: 50%;
+        line-height: .72rem;
+        color: #666;
+        text-align: center;
+        background: #fff;
+
+        >span {
+            background: red;
+            color: #fff;
+            line-height: .24rem;
+            padding: .04rem .09rem;
+            font-size: .2rem;
+            border-radius: 1rem;
+            position: absolute;
+            top: 0;
+            right: -.1rem;
         }
     }
 }

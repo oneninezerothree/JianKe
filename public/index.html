@@ -8,6 +8,27 @@
     <title>jianke-website</title>
   </head>
   <body>
+    <script>
+    /* eslint-disable */
+    !(function (win) {
+      var doc = win.document;
+      var el = doc.documentElement;
+      var designSize = 750;
+      var ratio = designSize / 100;
+      var resizeEvent = 'orientationchange' in win ? 'orientationchange' : 'resize';
+
+      function handleResize() {
+        var clientWidth = el.clientWidth || 375;
+        clientWidth > designSize && (clientWidth = designSize), el.style.fontSize = clientWidth / ratio + 'px';
+        setTimeout(function () { el.className = 'complete-body'; }, 300);
+      }
+      if (doc.addEventListener) {
+        win.addEventListener(resizeEvent, handleResize, false);
+        doc.addEventListener('DOMContentLoaded', handleResize, false);
+      }
+    })(window)
+    /* eslint-enable */
+  </script>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>

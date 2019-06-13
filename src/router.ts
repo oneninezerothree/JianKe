@@ -4,7 +4,8 @@ import Router from 'vue-router';
 import GoodsClassifyPage from './views/GoodsClassifyPage.vue';
 // 商品列表页组件
 import GoodsListPage from './views/GoodsListPage.vue';
-
+// 商品下详情页
+import GoodsDetailPage from './views/GoodsDetailPage.vue';
 Vue.use(Router);
 
 export default new Router({
@@ -20,5 +21,10 @@ export default new Router({
       path: '/list',
       name: 'ListPage',
       component: GoodsListPage,
-    }  ],
+    },
+    {
+      path: '/detail',
+      name: 'DetailPage',
+      component: GoodsDetailPage,
+    }],
 });

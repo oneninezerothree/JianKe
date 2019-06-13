@@ -1,6 +1,6 @@
 <template>
-<div>
-    <div class="condition">
+<div class="condition" ref="condition">
+    <div :class="{'jk-affix': addFixedClass}">
         <section class="condition-box">
             <div class="cdt-item current"><span >综合
         <!----></span></div>
@@ -32,7 +32,22 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-
+    data() {
+        return {
+            // jk-affix 类名添加条件
+            addFixedClass: false,
+        };
+    },
+    mounted() {
+        // 侦听 window 滚动到阈值更改 jk-affix 类名改变条件
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 154) {
+                this.addFixedClass = true;
+            } else {
+                this.addFixedClass = false;
+            }
+        });
+    },
 });
 </script>
 
@@ -40,6 +55,15 @@ export default Vue.extend({
 .condition {
     position: absolute;
     width: 100%;
+
+    .jk-affix {
+        position: fixed;
+        z-index: 66;
+        border-bottom: 1px solid #eee;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
 
     .condition-box {
         display: flex;
@@ -85,6 +109,34 @@ export default Vue.extend({
 
         .cdt-item.current {
             color: #1b8ffa;
+        }
+    }
+
+    .cdt-item-spread {
+        position: relative;
+        z-index: 111;
+
+        .spread-list {
+            padding-left: .32rem;
+            background: #fff;
+            position: relative;
+            z-index: 111;
+
+            >p {
+                border-bottom: 1px solid #e6e6e6;
+                height: .88rem;
+                line-height: .88rem;
+                padding-left: .2rem;
+            }
+        }
+
+        .bg {
+            background: rgba(0, 0, 0, .75);
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
         }
     }
 }
