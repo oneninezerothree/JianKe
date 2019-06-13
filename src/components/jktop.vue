@@ -2,10 +2,9 @@
   <div id="box">
     <div class="box" >
       <div>
-        <div class="btn-close"></div>
+        <div class="btn-close" @touchstart="close()"></div>
         <div rel="nofollow" class="btn-dl" data-stat="1090101"></div>
         <img
-         
           src="https://img5.jianke.com/mall/common/201906/fec1c3ec8b5c4a5d8c124783e4417447.png"
           alt
           class="box-bg"
@@ -20,8 +19,15 @@ import Vue from "vue";
 
 export default({
   data(){
-    return {a:1}
+    return {
+
+    }
   },
+  methods:{
+    close(){
+      this.$el.remove();
+    }
+  }
 });
 </script>
 

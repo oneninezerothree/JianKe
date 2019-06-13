@@ -10,7 +10,7 @@
           <i class="icon iconfont icon-search"></i>
           <input type="text" placeholder="西乐葆低至33">
         </div>
-        <div class="info-login">
+        <div class="info-login" @touchstart="login()">
           <span>登录</span>
         </div>
       </div>
@@ -20,7 +20,19 @@
 <script  lang="js">
 import Vue from "vue";
 
-export default {};
+export default {
+  data(){
+    return {
+      pathna:'jklogin'
+    }
+  },
+  methods:{
+    login(){
+        console.log(this.$router);
+        this.$router.push({name:"jklogin"});
+    }
+  }
+};
 </script>
 <style scoped lang="scss">
 .search-bar {
@@ -81,7 +93,7 @@ export default {};
     flex: 0 1 0.7rem;
     width: 0.7rem;
     text-align: center;
-    // color: #fff;
+    color: #fff;
     font-size: 0.26rem;
   }
 }

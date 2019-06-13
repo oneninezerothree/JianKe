@@ -1,6 +1,6 @@
 <template>
   <div id="nav_bottom">
-    <div class="tab-bar" v-for="(item,idx) in typefaces" :key="item.name" v-on:click="goto(idx,$event)">
+    <div class="tab-bar-item" v-for="(item,idx) in typefaces" :key="item.name" v-on:click="goto(idx,$event)">
       <a v-bind:class="{'tab-bar-item':true,active:idx===active}"  href="javascript:;" >
         <i :class="item.classname"></i>
         <p>{{item.title}}</p>
@@ -14,15 +14,12 @@ export default {
     return {
       typefaces: [
         {
-          type: "ios-home",
-          color: "red",
           num: "",
           name: "Home",
           title: "首页",
           classname: "icon iconfont icon-tab-home-active"
         },
         {
-          type: "md-apps",
           color: "black",
           num: "",
           name: "CategoryPage",
@@ -30,24 +27,18 @@ export default {
           classname: "icon iconfont icon-tab-classify"
         },
         {
-          type: "md-videocam",
-          color: "black",
           num: "",
           name: "ChannelPage",
           title: "头条",
           classname: "icon iconfont icon-tab-jktt"
         },
         {
-          type: "md-cart",
-          color: "black",
           num: "1",
           name: "Cart",
           title: "购物车",
           classname: "icon iconfont icon-tab-cart"
         },
         {
-          type: "md-contact",
-          color: "black",
           num: "",
           name: "Personal",
           title: "我",

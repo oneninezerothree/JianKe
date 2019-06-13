@@ -15,10 +15,10 @@ export default {
   data() {
     return {
       pic:[
-            {imgurl:"https://img02.hua.com/slider/18_youflower_m.jpg"},
-            {imgurl:"https://img02.hua.com/slider/19_duanwujie_m.png"},
-            {imgurl:"https://img02.hua.com/slider/18_birthday_m.jpg"}
-           
+            {imgurl:"https://img5.jianke.com/mall/vmall/index/201906/f9f1cde934fa4968a4cdcb83bf78f3d2.jpg"},
+            {imgurl:"https://img5.jianke.com/mall/vmall/index/201906/11c0a190409c477ea402dbd17bc54e8f.jpg"},
+            {imgurl:"https://img5.jianke.com/mall/vmall/index/201906/5c1643f57dcd4d92b98c5d55fb4b2bed.jpg"},
+            {imgurl:"https://img5.jianke.com/mall/vmall/index/201906/05dd0f5a08c04931ad87ec747ca11ecc.jpg"}
           ]
     }
   }
@@ -53,6 +53,5 @@ export default {
   position: relative;;
   top:0;
   left:0;
-  margin-top: 31px;
 }
 </style>
