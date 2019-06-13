@@ -12,7 +12,7 @@
           </a>
         </div>
       </div>
-      <nav v-show="active">
+      <nav v-show="sh">
         <ul>
           <li class="arrows-tag"></li>
           <li>
@@ -45,7 +45,7 @@
     <div class="login-box">
       <section class="page">
         <div class="login-tab">
-          <div class="mobile-login-btn active">手机号快捷登录</div>
+          <div class="mobile-login-btn active" @touchstart="isqiehuan(bool)">手机号快捷登录</div>
           <div class="account-login-btn">账号密码登录</div>
         </div>
         <div class="login-wrap">
@@ -68,7 +68,7 @@
               <!---->
             </div>
           </div>
-          <div class="account-login-box" style="display: block;">
+          <div class="account-login-box" style="display: none;">
             <div class="account-item">
               <input type="text" placeholder="请输入手机号/邮箱" class="inputStyle">
               <!---->
@@ -92,9 +92,13 @@
             <span>温馨提示：未注册过健客的手机号，登录时会自动注册健客账号，且代表您已同意</span>
             <a href="/account/clause" class>《健客服务条款》</a>
           </div>
+          <div class="link">
+            <a href="/account/forgetpwd" class="forget-link">忘记密码</a>
+            <a href="/register" class="register-link">注册</a>
+          </div>
           <!---->
         </div>
-        <div class="captchas_masking" style="display: block;"></div>
+        <div class="captchas_masking" style="display: none;"></div>
       </section>
       <!---->
       <div class="loading-model hide">
@@ -111,34 +115,20 @@
 export default {
   data() {
     return {
-      active:0
-    }
+      sh: false
+    };
   },
   methods: {
     backhome() {
       this.$router.push({ name: "home" });
     },
-    togglebtn(active) {
-    
+    togglebtn() {
+      this.sh = !this.sh;
     }
   }
 };
 </script>
 <style scoped lang="scss">
-a {
-  text-decoration: none;
-  color: inherit;
-  -webkit-tap-highlight-color: rgba(255, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-}
-a,
-button,
-input,
-textarea {
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
-}
 header > div {
   height: 0.88rem;
   text-align: center;
@@ -391,5 +381,19 @@ a {
 }
 .hide {
   display: none;
+}
+.page .login-wrap .link {
+  overflow: hidden;
+  margin-top: 0.26rem;
+  font-size: 14px;
+  .forget-link {
+    float: left;
+  }
+   .register-link {
+    float: right;
+}
+  a {
+    color: #2ca3ff;
+  }
 }
 </style>
