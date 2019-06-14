@@ -17,7 +17,7 @@ import MyInfoPage from './views/MyInfoPage.vue';
 // 登录页组件
 import LoginPage from './views/jklogin.vue';
 // 注册页组件
-import Register from './views/Register.vue';
+import RegisterPage from './views/Register.vue';
 
 Vue.use(Router);
 
@@ -58,11 +58,16 @@ export default new Router({
     {
       path: '/my',
       name: 'MyInfo',
-      component: MyInfoPage,
+      component: LoginPage,
     },
     {
       path: '/login',
       name: 'LoginPage',
       component: LoginPage,
+    },
+    {
+      path: '/register',
+      name: 'Register',
+      component: RegisterPage,
     }],
 });
