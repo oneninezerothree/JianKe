@@ -30,7 +30,8 @@ export default {
     login(){
         // console.log(this.$router);
         this.$router.push({name:"jklogin"});
-    }
+    },
+    
   }
 };
 </script>

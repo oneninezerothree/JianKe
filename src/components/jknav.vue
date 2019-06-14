@@ -1,7 +1,13 @@
 <template>
-  <div id="nav_bottom">
-    <div class="tab-bar-item" v-for="(item,idx) in typefaces" :key="item.name" v-on:click="goto(idx,$event)">
-      <a v-bind:class="{'tab-bar-item':true,active:idx===active}"  href="javascript:;" >
+  <div class="tab-bar">
+    <div
+      class="tab-bar-item"
+      v-for="(item,idx) in typefaces"
+      :key="item.name"
+      
+      @touchstart="goto(item)"
+    >
+      <a href="javascript:;" @touchstart="change(idx,$event)" v-bind:class="{'':true,active:idx===active}">
         <i :class="item.classname"></i>
         <p>{{item.title}}</p>
       </a>
@@ -15,12 +21,11 @@ export default {
       typefaces: [
         {
           num: "",
-          name: "Home",
+          name: "home",
           title: "首页",
-          classname: "icon iconfont icon-tab-home-active"
+          classname: "icon iconfont icon-tab-home"
         },
         {
-          color: "black",
           num: "",
           name: "CategoryPage",
           title: "分类",
@@ -34,13 +39,13 @@ export default {
         },
         {
           num: "1",
-          name: "Cart",
+          name: "jkcart",
           title: "购物车",
           classname: "icon iconfont icon-tab-cart"
         },
         {
           num: "",
-          name: "Personal",
+          name: "user",
           title: "我",
           classname: "icon iconfont icon-tab-mine"
         }
@@ -48,43 +53,46 @@ export default {
       active:0
     };
   },
-  methods:{
-    //   color(idx){
-    //   // console.log(this.typefaces.length);
-    //   this.typefaces.map(typeface=>typeface.color='black');
-    //   this.typefaces[idx].color='red';
-    //   },
-    //   goto(typeface){
-    //       // console.log('App:',this);
-    //       this.$router.push({name:typeface.name});
-    //   }
-
-    goto(event,idx){
-        // console.log(idx,event);
-        this.active = idx;
+  methods: {
+    change(idx,$event){
+      this.active = idx;
+    },
+    goto(item) {
+      // console.log('App:',this);
+      this.$router.push({ name: item.name });
     }
-  },
-//   @click="color(idx)" :color="typeface.color"
+  }
 };
 </script>
-<style scope>
-#nav_bottom {
-  position: fixed;
-  bottom: 0;
-  display: block;
+<style scope lang="scss">
+.tab-bar {
   width: 100%;
-  background: #ffffff;
-}
-#nav_bottom > div {
-  text-align: center;
-  float: left;
-  width: 20%;
+  max-width: 960px;
+  min-width: 320px;
+  height: 1rem;
+  position: fixed;
+  border-top: 1px solid #e3e3e3;
+  bottom: 0;
+  z-index: 999;
+  background: #fff;
+  display: flex;
+  align-items: center;
 }
 .tab-bar-item {
-  list-style:none;
-}
-.tab-bar-item .active{
-  color: #28b2f9;
-}
+  flex: 1;
+  text-align: center;
+  display: inline-block;
 
+  a {
+    text-decoration: none;
+    color: #333;
+  }
+  p {
+    font-size: 12px;
+    margin-top: 2px;
+  }
+  .active {
+    color: #28b2f9;
+  }
+}
 </style>

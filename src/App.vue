@@ -1,11 +1,19 @@
 <template>
   <div id="app">
     <router-view/>
+    <jknav/>
   </div>
 </template>
-
+<script>
+import Vue from 'vue';
+import jknav from './components/jknav';
+export default Vue.extend({
+  components:{
+    jknav
+  }
+})
+</script>
 <style lang="scss">
-
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
