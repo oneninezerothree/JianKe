@@ -20,6 +20,7 @@ import jkselect from '@/components/jkselect.vue';
 import jkrecommend from '@/components/jkrecommend.vue';
 import jkgou from '@/components/jkgou.vue';
 
+
 @Component({
   components: {
     jktop,
@@ -29,11 +30,12 @@ import jkgou from '@/components/jkgou.vue';
     jkrecommend,
     jkgou,
   },
+  created() {
+     this.$store.state.isShowJknav = true;
+  },
 })
 export default class Home extends Vue {
-  public created() {
-     this.$store.state.isShowJknav = true;
-  }
+
 }
 </script>
 <style>

@@ -4,7 +4,7 @@
       <div class="register-view view">
         <header id="mallHeader">
           <div>
-            <a rel="nofollow" class="back-btn common-header-btn">
+            <a rel="nofollow" class="back-btn common-header-btn" @touchstart="backlogin()">
               <i class="icon iconfont icon-back"></i>
             </a>
             <span>用户注册</span>
@@ -98,6 +98,9 @@ export default {
     };
   },
   methods: {
+    backlogin(){
+      this.$router.push({name:"jklogin"});
+    },
     getAuthCode() {
       this.sendAuthCode = false;
       this.auth_time = 5;

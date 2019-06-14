@@ -45,7 +45,7 @@
     <div class="login-box">
       <section class="page">
         <div class="login-tab">
-          <div class="mobile-login-btn active" @touchstart="isqiehuan(bool)">手机号快捷登录</div>
+          <div class="mobile-login-btn active">手机号快捷登录</div>
           <div class="account-login-btn">账号密码登录</div>
         </div>
         <div class="login-wrap">
@@ -54,7 +54,7 @@
               <input type="tel" placeholder="请输入您的手机号" maxlength="11" class="inputStyle">
               <!---->
             </div>
-            <div class="captchas-item" style="display: none;">
+            <div class="captchas-item" v-if="codesh">
               <input type="text" id="ccc" placeholder="图形验证码" class="inputStyle">
               <p class="img-btn">
                 <img src>
@@ -63,18 +63,18 @@
             </div>
             <div class="code-item">
               <input type="text" placeholder="验证码" maxlength="6" class="inputStyle">
-              <button class="code-btn">获取验证码</button>
-              <button class="code-btn computing" style="display: none;">重新发送(0秒)</button>
+              <button class="code-btn" v-show="sendAuthCode" @touchstart="getAuthCode()">获取验证码</button>
+              <button class="code-btn computing" v-show="!sendAuthCode">重新发送{{auth_time}}秒</button>
               <!---->
             </div>
           </div>
           <div class="account-login-box" style="display: none;">
-            <div class="account-item">
-              <input type="text" placeholder="请输入手机号/邮箱" class="inputStyle">
+            <div class="account-item" prop="username" >
+              <input type="text" placeholder="请输入手机号/邮箱" class="inputStyle" v-model="ruleForm.username">
               <!---->
             </div>
             <div class="password-item">
-              <input type="password" placeholder="请输入您的密码" maxlength="16" class="inputStyle">
+              <input type="password" placeholder="请输入您的密码" maxlength="16" class="inputStyle" v-model="ruleForm.password">
               <div class="pwd-switch">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAABfElEQVRYR+2V0VECQRBEezIwAyECIYQmATEDiEAyECMAIxAz0ARojEDMwAwkg7GGWqgrvIMFqcKPnd+9ne5607NnuHDZhfVRDBQChUAhUAgUAv+PgKQRgBuSw3P/KSWNAbRIDja9fxGQ1HL3pZn1SS7OZUJSB8AHgC7JZaOBOJA0cPepmXVIfv3VhKSraAvgjWRQ2FZjBiTNYhQASHJ1qomK+GcV/V4Cm8Nk4jaZ2GLLNZOwPwOoFY8+e7cgBXKSBAPdUy6NdPcBQOAfk3ysM15rIDmfuHvbzNaJdfexmcVIpgBe6rIRAQYQxEbubunuKuXpGsBwN9hNBtZB2Q2MpD6AMBQiEc5qQEM8NujdzGYkI0PbSkRiBWPND4ewac4pVN8A7gDEam0qVjaS3j5mc45+CYNCjKPX61XF1yYkvQJYkIwxZdUpBgLtsk4k3g8A9yS7WeqHtqCuyXw+XzU9UJXxZI/hFAKjfYgThRhD1gt6tIFctLnfFQMXJ/AD1gGdISqQy3gAAAAASUVORK5CYII="
@@ -86,7 +86,7 @@
           </div>
           <div class="login-bar">
             <!---->
-            <button class="login-btn">登录</button>
+            <button class="login-btn" @touchstart="loginpsn()">登录</button>
           </div>
           <div class="notice">
             <span>温馨提示：未注册过健客的手机号，登录时会自动注册健客账号，且代表您已同意</span>
@@ -115,8 +115,24 @@
 export default {
   data() {
     return {
-      sh: false
-    };
+      sh: false,
+      codesh:false,
+      sendAuthCode: true /*布尔值，通过v-show控制显示‘获取按钮’还是‘倒计时’ */,
+      auth_time: 0 /*倒计时 计数器*/,
+      ruleForm: {
+        username: "",
+        password: ""
+      },
+      rules: {
+        username: [
+          { required: true, message: "请输入用户名", trigger: "blur" },
+          { min: 3, max: 15, message: "长度在 3 到 5 个字符", trigger: "blur" }
+        ],
+        password: [
+          { required: true, message: "请输入密码", trigger: "blur" }
+        ]
+      }
+    }
   },
   methods: {
     backhome() {
@@ -124,6 +140,41 @@ export default {
     },
     togglebtn() {
       this.sh = !this.sh;
+    },
+    getAuthCode() {
+      this.codesh = true;
+      this.sendAuthCode = false;
+      this.auth_time = 5;
+      var auth_timetimer = setInterval(() => {
+        this.auth_time--;
+        if (this.auth_time <= 0) {
+          this.sendAuthCode = true;
+          clearInterval(auth_timetimer);
+        }
+      }, 1000);
+    },
+    loginpsn(){
+          this.$refs.ruleForm.validate((valid) => {
+          if (valid) {
+            // 保存用户名密
+            localStorage.setItem('username',this.ruleForm.username);
+
+            // this.$router.push('/home');
+            if(this.$route.params.from){
+                this.$router.push(this.$route.params.from);
+            }else{
+                this.$router.push('/home');
+            }
+          } else {
+            return false;
+          }
+        });
+      }
+  },
+  computed:{
+    isShowJknav(){
+      // 从仓库获取值到组件
+      return this.$store.state.isShowJknav=false;
     }
   }
 };
