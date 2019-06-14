@@ -2,7 +2,7 @@
 <div class="product-header on-top">
     <div class="">
         <header id="mallHeader">
-            <div><a rel="nofollow" class="back-btn common-header-btn" style="display:;" ><i class="icon iconfont icon-back" ></i></a>
+            <div><a @click="$router.back()" rel="nofollow" class="back-btn common-header-btn" style="display:;" ><i class="icon iconfont icon-back" ></i></a @click="$router.back()">
                 <span class="title" v-for="(item, index) in headerText" :key="index" :class="{'active': index === headerActive}" @click="changeHeaderActive(index)">{{ item }}</span>
                 <div class="toggle-btn common-header-btn"><a rel="nofollow" ><i class="icon iconfont icon-more" ></i></a></div>
             </div>

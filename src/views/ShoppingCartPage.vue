@@ -1,5 +1,14 @@
 <template>
-    <div>
-        This's ShopPingCartPage!
-    </div>
+<div>
+    This's ShopPingCartPage!
+</div>
 </template>
+
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+    created() {
+        this.$store.state.CommonBottomShow = true;
+    },
+});
+</script>

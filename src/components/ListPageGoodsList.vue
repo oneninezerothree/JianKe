@@ -1,7 +1,7 @@
 <template>
 <div class="product-list" style="height: 100vh;" @scroll="showTotop">
     <div infinite-scroll-disabled="loading" infinite-scroll-distance="50">
-        <article v-for="(item, index) in 30" :key="index" data-v-61211646="" class="pro-item"><img data-v-61211646="" src="https://image.jianke.com/suo/mall/product/201906/aedd647b0921403895ac2354e602b7f0!200x200.jpg" alt="">
+        <routerLink to="/detail" tag="div" v-for="(item, index) in 30" :key="index" data-v-61211646="" class="pro-item"><img data-v-61211646="" src="https://image.jianke.com/suo/mall/product/201906/aedd647b0921403895ac2354e602b7f0!200x200.jpg" alt="">
             <div data-v-61211646="" class="pro-info">
                 <h1 data-v-61211646="">盐酸伐地那非片(艾力达)</h1>
                 <div data-v-61211646="" class="type">规格：20mg*4s</div>
@@ -12,7 +12,7 @@
                 </div>
             </div>
             <div data-v-3b08a2b4="" data-v-61211646="" class="btn-car iconfont icon-bar-shoppingcart"></div>
-        </article>
+        </routerLink>
         <div class="loading" style="display: none;">加载中……</div>
         <div class="moreTips">
             <p>没有找到想要的商品？</p>

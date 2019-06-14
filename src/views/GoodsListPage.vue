@@ -40,6 +40,9 @@ export default Vue.extend({
         ListPageGoodsList,
         PageCommonToTop,
     },
+    created() {
+        this.$store.state.CommonBottomShow = false;
+    },
 });
 </script>
 

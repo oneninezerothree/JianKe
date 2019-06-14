@@ -13,6 +13,24 @@ export default Vue.extend({
     components: {
         PageCommonBottom,
     },
+    created() {
+        // 创建之后根据当前路由决定公共底部组件当前选中
+        this.$store.state.CommonBottomData.forEach((item: any, index: any) => {
+            if (this.$route.path === item.path) {
+                this.$store.state.CommonBottomActive = index;
+            }
+        });
+    },
+    watch: {
+        // 监听路由改变，根据路由改变更改公共底部组件当前选中
+        $route(to, from) {
+            this.$store.state.CommonBottomData.forEach((item: any, index: any) => {
+                if (to.path === item.path) {
+                    this.$store.state.CommonBottomActive = index;
+                }
+            });
+        },
+    },
 });
 </script>
 

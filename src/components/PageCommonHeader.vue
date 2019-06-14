@@ -1,7 +1,7 @@
 <template>
 <header id="mallHeader" :class="param.className">
     <div>
-        <a rel="nofollow" class="back-btn common-header-btn">
+        <a rel="nofollow" class="back-btn common-header-btn" @click="$router.back()">
         <i class="icon iconfont icon-back"></i>
       </a>
         <span>{{ param.titleText }}</span>

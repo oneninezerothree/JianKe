@@ -1,7 +1,7 @@
 <template>
-<div class="tab-bar">
-    <a v-for="(item, index) in TabControlContent" :key="index" class="tab-bar-item" :class="index === SelectedOption ? 'active' : ''" @click="ChangeIcon(index)">
-       <router-link  :to="item.path">
+<div class="tab-bar" v-if="showCommonBottom">
+    <a v-for="(item, index) in TabControlContent" :key="index" class="tab-bar-item" :class="index === SelectedOption ? 'active' : ''" >
+       <router-link  :to="item.path" class="routeStyle">
             <i  class="icon iconfont" :class="index === SelectedOption ? item.ActiveIcon : item.icon"></i>
         <p>{{ item.text }}</p>
        </router-link>
@@ -12,46 +12,31 @@
 <script lang="ts">
 import Vue from 'vue';
 export default Vue.extend({
-    data() {
-        return {
-            TabControlContent: [{
-                text: '首页',
-                icon: 'icon-tab-home',
-                ActiveIcon: 'icon-tab-home-active',
-                path: '/',
-            }, {
-                text: '分类',
-                icon: 'icon-tab-classify',
-                ActiveIcon: 'icon-tab-classify-active',
-                path: '/classify',
-            }, {
-                text: '头条',
-                icon: 'icon-tab-jktt',
-                ActiveIcon: 'icon-tab-jktt-active',
-                path: '/news',
-            }, {
-                text: '购物车',
-                icon: 'icon-tab-cart',
-                ActiveIcon: 'icon-tab-cart-active',
-                path: '/cart',
-            }, {
-                text: '我',
-                icon: 'icon-tab-mine',
-                ActiveIcon: 'icon-tab-mine-active',
-                path: 'my',
-            }],
-            SelectedOption: 0,
-        };
-    },
-    methods: {
-        ChangeIcon(index: number) {
-            this.SelectedOption = index;
+    computed: {
+        showCommonBottom() {
+            return this.$store.state.CommonBottomShow;
+        },
+        TabControlContent() {
+            return this.$store.state.CommonBottomData;
+        },
+        SelectedOption() {
+            return this.$store.state.CommonBottomActive;
         },
     },
+    // 点击更换公共底部组件 CurrentActive, 被 App.vue 中的监听路由改变替代
+    // methods: {
+    //     ChangeIcon(index: number) {
+    //         this.$store.state.CommonBottomActive = index;
+    //     },
+    // },
 });
 </script>
 
 <style lang="scss" scoped>
+.routeStyle {
+    display: block;
+}
+
 .tab-bar {
     width: 100%;
     max-width: 960px;

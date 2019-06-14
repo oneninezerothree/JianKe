@@ -18,7 +18,6 @@ import ClassifyTabControl from '../components/ClassifyTabControl.vue';
 // 列表页右侧内容组件
 import ClassifyContent from '../components/ClassifyContent.vue';
 
-
 export default Vue.extend({
     components: {
         PageCommonHeader,
@@ -26,9 +25,11 @@ export default Vue.extend({
         ClassifyTabControl,
         ClassifyContent,
     },
+    created() {
+        this.$store.state.CommonBottomShow = true;
+    },
 });
 </script>
 
 <style lang="scss">
-
 </style>
