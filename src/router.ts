@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 // 首页组件
-import HomePage from './views/HomePage.vue';
+import HomePage from './views/Home.vue';
 // 商品分类页组件
 import GoodsClassifyPage from './views/GoodsClassifyPage.vue';
 // 商品列表页组件
@@ -15,7 +15,10 @@ import ShoppingCartPage from './views/ShoppingCartPage.vue';
 // 我的信息组件
 import MyInfoPage from './views/MyInfoPage.vue';
 // 登录页组件
-import LoginPage from './views/LoginPage.vue';
+import LoginPage from './views/jklogin.vue';
+// 注册页组件
+import Register from './views/Register.vue';
+
 Vue.use(Router);
 
 export default new Router({
