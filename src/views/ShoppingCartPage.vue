@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div data-v-26246734 class="shopping-cart view">
     <header data-v-d45bd762 data-v-26246734 id="mallHeader">
       <!-- <router-link to="/home2">Home2</router-link> -->
@@ -774,3 +775,18 @@ header > div .toggle-btn[data-v-d45bd762] {
   margin-left: 0.3rem;
 }
 </style>
+=======
+<div>
+    This's ShopPingCartPage!
+</div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+    created() {
+        this.$store.state.CommonBottomShow = true;
+    },
+});
+</script>
+>>>>>>> a82b593fd11814bebd609ea8b65f7a77c60e1617

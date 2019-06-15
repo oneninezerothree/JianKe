@@ -10,6 +10,7 @@ import GoodsListPage from './views/GoodsListPage.vue';
 import GoodsDetailPage from './views/GoodsDetailPage.vue';
 // 头条组件
 import NewsPage from './views/NewsPage.vue';
+<<<<<<< HEAD
 //头条——关爱
 import guanzhu from './views/guanzhu.vue';
 //头条——关爱
@@ -18,6 +19,8 @@ import guanai from './views/guanai.vue';
 import yanggan from './views/yanggan.vue';
 //头条——关爱
 import xinnao from './views/xinnao.vue';
+=======
+>>>>>>> a82b593fd11814bebd609ea8b65f7a77c60e1617
 // 购物车组件
 import ShoppingCartPage from './views/ShoppingCartPage.vue';
 // 我的信息组件
@@ -59,6 +62,7 @@ export default new Router({
       component: NewsPage,
     },
     {
+<<<<<<< HEAD
       path: '/guanai',
       name: 'guanai',
       component: guanai,
@@ -79,6 +83,8 @@ export default new Router({
       component: xinnao,
     },
     {
+=======
+>>>>>>> a82b593fd11814bebd609ea8b65f7a77c60e1617
       path: '/cart',
       name: 'ShoppingCart',
       component: ShoppingCartPage,

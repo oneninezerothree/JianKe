@@ -6,7 +6,11 @@
     <jkselect />
     <jkrecommend />
     <jkgou />
+<<<<<<< HEAD
     <!-- <jknav /> -->
+=======
+    <jknav />
+>>>>>>> a82b593fd11814bebd609ea8b65f7a77c60e1617
 </div>
 </template>
 

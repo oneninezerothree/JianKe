@@ -1,4 +1,5 @@
 <template>
+<<<<<<< HEAD
   <div>
     <div class="nav-tab" data-v-56b50de9 data-v-39623280>
       <div class="scroll-wrap" data-v-56b50de9>
@@ -461,3 +462,18 @@ element.style {
 
 </style>
 
+=======
+<div>
+    This's NewPage!
+</div>
+</template>
+
+<script lang="ts">
+import Vue from 'vue';
+export default Vue.extend({
+    created() {
+        this.$store.state.CommonBottomShow = true;
+    },
+});
+</script>
+>>>>>>> a82b593fd11814bebd609ea8b65f7a77c60e1617
