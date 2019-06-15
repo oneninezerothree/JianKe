@@ -6,7 +6,7 @@
     <jkselect />
     <jkrecommend />
     <jkgou />
-    <jknav />
+    <!-- <jknav /> -->
 </div>
 </template>
 
